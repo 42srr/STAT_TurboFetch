@@ -19,7 +19,7 @@ public class DataLoadController {
     private final TokenConfig tokenConfig;
 
     @GetMapping("/init")
-    public void returnAllUsers(
+    public String returnAllUsers(
             @RequestParam(required = false) String code ) {
 
         /*
@@ -34,7 +34,7 @@ public class DataLoadController {
         System.out.println("=== code ===");
         System.out.println(code);
         if (code == null)
-            return ;
+            return "401";
 
 
         /*
@@ -78,6 +78,7 @@ public class DataLoadController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + responseDto.getAccess_token());
         HttpEntity request = new HttpEntity(headers);
+        String allUsers = "";
         while (true) {
             RestTemplate requestUser = new RestTemplate();
             ResponseEntity<ArrayList> response = requestUser.exchange(
@@ -90,9 +91,10 @@ public class DataLoadController {
             ArrayList<HashMap<String, Object>> body = response.getBody();
 
             if (body.isEmpty()) break;
+            allUsers += body;
             System.out.println(body.toString());
             page++;
         }
-
+        return allUsers;
     }
 }
