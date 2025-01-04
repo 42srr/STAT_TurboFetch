@@ -1,0 +1,4 @@
+42:
+  client-id: u-s4t2ud-7092e7912adc2ca54852261d6738a4ae005f7d3c715b755631600dbe82c154c7
+  client-secret: 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
+  redirect-uri: http://localhost:8080/login/oauth2/code/42
