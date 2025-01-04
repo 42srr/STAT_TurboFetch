@@ -1,7 +1,6 @@
 package com.ggs.STAT_TurboFetch.api;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @Getter

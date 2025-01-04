@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a15a47d-ba8d-4e61-bd1c-2afc4e26a91c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/ApiControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/exception/CodeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/config/ClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/service/exception/TokenRequestFailedException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -16,14 +18,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ggs/STAT_TurboFetch/api/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ggs/STAT_TurboFetch/api/config/TokenConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainController.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Oauth2TokenRequestDto.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/DataLoadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/controller/DataLoadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/config/TokenConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/config/TokenConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/controller/DataLoadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +55,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -73,23 +75,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.STAT_TurboFetch [:StatTurboFetchApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat__RequestAllUserDatato42Server&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jojaeyoung/Desktop/GGS/STAT_TurboFetch&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.STAT_TurboFetch [:StatTurboFetchApplication.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat__RequestAllUserDatato42Server",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/jojaeyoung/Desktop/GGS/STAT_TurboFetch/src/main/java/com/ggs/STAT_TurboFetch",
+    "last_opened_file_path": "/Users/jojaeyoung/Desktop/GGS/STAT_TurboFetch"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="StatTurboFetchApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ggs.STAT_TurboFetch.StatTurboFetchApplication" />
       <module name="STAT_TurboFetch.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ggs.STAT_TurboFetch.*" />
+          <option name="PATTERN" value="com.ggs.STAT_TurboFetch.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
