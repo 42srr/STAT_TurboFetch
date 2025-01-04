@@ -1,0 +1,9 @@
+# dev profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+### 42 application for production
+42:
+  access-token: eyJhbGciOiJIUzI1NiJ9.eyJpbnRyYUlkIjoiamFqbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczNTUzNjU2MywiZXhwIjoxNzM1NTQwMTYzfQ.-BHJ9PxBUOPHk2jiGMyLfJx0i2eu3SjxY9SOz604XYU
