@@ -28,4 +28,19 @@ class FtClientImplTest {
         assertEquals(5, userPersonalDto.getWallet());
         assertEquals(6, userPersonalDto.getCorrection_point());
     }
+
+    @Test
+    @DisplayName("extractUserField 잘못된 데이터 형식이 들어올 경우 예외가 발생하는지 확인한다")
+    void testExtractUserFieldWithInvalidData() {
+        HashMap<String, Object> user = new HashMap<>();
+        user.put("id", "invalid_id");
+        user.put("login", 12345);
+        user.put("kind", null);
+        user.put("wallet", "invalid_wallet");
+        user.put("correction_point", null);
+
+        assertThrows(ClassCastException.class, () -> {
+            FtClientImpl.extractUserField(user);
+        });
+    }
 }

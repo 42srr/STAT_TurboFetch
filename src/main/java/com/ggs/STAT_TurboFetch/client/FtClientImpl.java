@@ -85,6 +85,22 @@ public class FtClientImpl implements FtClient {
         return allUsers;
     }
 
+    public static UserPersonalDto extractUserField(HashMap<String, Object> user){
+        Integer ft_server_id_Value = (Integer) user.get("id");
+        int ft_server_id = ft_server_id_Value != null ? ft_server_id_Value : 0;
+
+        String intra_id = (String) user.get("login");
+        String role = (String) user.get("kind");
+
+        Integer walletValue = (Integer) user.get("wallet");
+        int wallet = walletValue != null ? walletValue : 0;
+
+        Integer correctionPointValue = (Integer) user.get("correction_point");
+        int correction_point = correctionPointValue != null ? correctionPointValue : 0;
+
+        return new UserPersonalDto(ft_server_id, intra_id, role, wallet, correction_point);
+    }
+
     private static List<UserDto> parsingResponse(ArrayList<HashMap<String, Object>> body){
         List<UserDto> parsingResponseList = new ArrayList<>();
 
@@ -103,35 +119,19 @@ public class FtClientImpl implements FtClient {
     }
 
     private static UserDto setUserDtoField(Double level, UserPersonalDto userPersonalDto, String largeImage){
-        UserDto userDto = new UserDto();
-        userDto.setLevel(level);
-        userDto.setFt_server_id(userPersonalDto.getFt_server_id());
-        userDto.setRole(userPersonalDto.getRole());
-        userDto.setIntra_id(userPersonalDto.getIntra_id());
-        userDto.setWallet(userPersonalDto.getWallet());
-        userDto.setCorrection_point(userPersonalDto.getCorrection_point());
-        userDto.setImage(largeImage);
-        return userDto;
+        return UserDto.builder()
+                .ft_server_id(userPersonalDto.getFt_server_id())
+                .intra_id(userPersonalDto.getIntra_id())
+                .role(userPersonalDto.getRole())
+                .wallet(userPersonalDto.getWallet())
+                .correction_point(userPersonalDto.getCorrection_point())
+                .level(level)
+                .image(largeImage)
+                .build();
     }
 
     private static Double extractLevel(HashMap<String, Object> data){
         return (Double) data.get("level");
-    }
-
-    public static UserPersonalDto extractUserField(HashMap<String, Object> user){
-        Integer ft_server_id_Value = (Integer) user.get("id");
-        int ft_server_id = ft_server_id_Value != null ? ft_server_id_Value : 0;
-
-        String intra_id = (String) user.get("login");
-        String role = (String) user.get("kind");
-
-        Integer walletValue = (Integer) user.get("wallet");
-        int wallet = walletValue != null ? walletValue : 0;
-
-        Integer correctionPointValue = (Integer) user.get("correction_point");
-        int correction_point = correctionPointValue != null ? correctionPointValue : 0;
-
-        return new UserPersonalDto(ft_server_id, intra_id, role, wallet, correction_point);
     }
 
     private static String extractImageField(HashMap<String, Object> user){

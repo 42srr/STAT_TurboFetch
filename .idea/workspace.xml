@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a15a47d-ba8d-4e61-bd1c-2afc4e26a91c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/config/ClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ggs/STAT_TurboFetch/client/FtClientImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ggs/STAT_TurboFetch/client/FtClientImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,12 +65,14 @@
     "Gradle.STAT_TurboFetch [:StatTurboFetchApplication.main()].executor": "Run",
     "JUnit.FtClientImplTest.executor": "Run",
     "JUnit.FtClientImplTest.testExtractUserField.executor": "Run",
+    "JUnit.FtClientImplTest.testExtractUserFieldInvalidData.executor": "Run",
+    "JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData.executor": "Run",
     "JUnit.FtClientImplTest.testExtractUserPersonalField.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "refactoring",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/jojaeyoung/Desktop/GGS/STAT_TurboFetch/src/main/java/com/ggs/STAT_TurboFetch",
     "last_opened_file_path": "C:/Users/easts/STAT_TurboFetch",
@@ -99,7 +90,7 @@
       <recent name="com.ggs.STAT_TurboFetch.client" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StatTurboFetchApplication">
+  <component name="RunManager" selected="JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData">
     <configuration name="StatTurboFetchApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ggs.STAT_TurboFetch.StatTurboFetchApplication" />
       <module name="STAT_TurboFetch.main" />
@@ -160,7 +151,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FtClientImplTest.testExtractUserPersonalField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FtClientImplTest.testExtractUserFieldWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="STAT_TurboFetch.test" />
       <extension name="coverage">
         <pattern>
@@ -170,7 +161,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ggs.STAT_TurboFetch.client" />
       <option name="MAIN_CLASS_NAME" value="com.ggs.STAT_TurboFetch.client.FtClientImplTest" />
-      <option name="METHOD_NAME" value="testExtractUserPersonalField" />
+      <option name="METHOD_NAME" value="testExtractUserFieldWithInvalidData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData" />
         <item itemvalue="Application.StatTurboFetchApplication" />
         <item itemvalue="JUnit.FtClientImplTest" />
         <item itemvalue="JUnit.FtClientImplTest.testExtractUserFieldInvalidData" />
         <item itemvalue="JUnit.FtClientImplTest.testExtractUserField" />
-        <item itemvalue="JUnit.FtClientImplTest.testExtractUserPersonalField" />
       </list>
     </recent_temporary>
   </component>
