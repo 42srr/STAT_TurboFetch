@@ -7,8 +7,6 @@
     <list default="true" id="3a15a47d-ba8d-4e61-bd1c-2afc4e26a91c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/FtClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ggs/STAT_TurboFetch/client/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ggs/STAT_TurboFetch/client/FtClientImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ggs/STAT_TurboFetch/client/FtClientImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,7 @@
       <recent name="com.ggs.STAT_TurboFetch.client" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData">
+  <component name="RunManager" selected="Application.StatTurboFetchApplication">
     <configuration name="StatTurboFetchApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ggs.STAT_TurboFetch.StatTurboFetchApplication" />
       <module name="STAT_TurboFetch.main" />
@@ -169,9 +167,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData" />
         <item itemvalue="Application.StatTurboFetchApplication" />
         <item itemvalue="JUnit.FtClientImplTest" />
+        <item itemvalue="JUnit.FtClientImplTest.testExtractUserFieldWithInvalidData" />
         <item itemvalue="JUnit.FtClientImplTest.testExtractUserFieldInvalidData" />
         <item itemvalue="JUnit.FtClientImplTest.testExtractUserField" />
       </list>

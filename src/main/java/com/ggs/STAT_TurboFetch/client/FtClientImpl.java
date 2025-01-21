@@ -87,16 +87,29 @@ public class FtClientImpl implements FtClient {
 
     public static UserPersonalDto extractUserField(HashMap<String, Object> user){
         Integer ft_server_id_Value = (Integer) user.get("id");
-        int ft_server_id = ft_server_id_Value != null ? ft_server_id_Value : 0;
+        int ft_server_id = 0;
+        if (ft_server_id_Value != null) {
+            ft_server_id = ft_server_id_Value;
+        }
 
         String intra_id = (String) user.get("login");
+        if(intra_id != null && intra_id.startsWith("3b3")){
+            return null;
+        }
+
         String role = (String) user.get("kind");
 
         Integer walletValue = (Integer) user.get("wallet");
-        int wallet = walletValue != null ? walletValue : 0;
+        int wallet = 0;
+        if(walletValue != null){
+            wallet = walletValue;
+        }
 
         Integer correctionPointValue = (Integer) user.get("correction_point");
-        int correction_point = correctionPointValue != null ? correctionPointValue : 0;
+        int correction_point = 0;
+        if(walletValue != null){
+            correction_point = correctionPointValue;
+        }
 
         return new UserPersonalDto(ft_server_id, intra_id, role, wallet, correction_point);
     }
@@ -109,6 +122,10 @@ public class FtClientImpl implements FtClient {
 
             HashMap<String, Object> user = (HashMap<String, Object>) data.get("user");
             UserPersonalDto userPersonalDto = extractUserField(user);
+
+            if (userPersonalDto == null) {
+                continue;
+            }
 
             String largeImage = extractImageField(user);
 
