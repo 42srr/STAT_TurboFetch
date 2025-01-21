@@ -1,11 +1,14 @@
 package com.ggs.STAT_TurboFetch.client;
 
+import com.ggs.STAT_TurboFetch.client.dto.UserDto;
+import com.ggs.STAT_TurboFetch.client.dto.UserPersonalDto;
 import com.ggs.STAT_TurboFetch.config.TokenConfig;
 import com.ggs.STAT_TurboFetch.api.dto.Oauth2TokenRequestDto;
 import com.ggs.STAT_TurboFetch.api.dto.Oauth2TokenResponseDto;
 import com.ggs.STAT_TurboFetch.service.exception.TokenRequestFailedException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -26,7 +29,7 @@ public class FtClientImpl implements FtClient {
     private static final String CAMPUS_USER_URI = "https://api.intra.42.fr/v2/cursus_users?filter[campus_id]=69&filter[cursus_id]=21&page=";
 
     @Override
-    public List<String> getAllUsers(String code) {
+    public List<UserDto> getAllUsers(String code) {
         Oauth2TokenRequestDto requestDto = new Oauth2TokenRequestDto();
         requestDto.setCode(code);
         requestDto.setGrant_type(tokenConfig.getGrantType());
@@ -61,7 +64,7 @@ public class FtClientImpl implements FtClient {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + responseDto.getAccess_token());
         HttpEntity request = new HttpEntity(headers);
-        List<String> allUsers = new ArrayList<>();
+        List<UserDto> allUsers = new ArrayList<>();
         while (true) {
             RestTemplate requestUser = new RestTemplate();
             ResponseEntity<ArrayList> response = requestUser.exchange(
@@ -74,9 +77,66 @@ public class FtClientImpl implements FtClient {
             ArrayList<HashMap<String, Object>> body = response.getBody();
 
             if (body.isEmpty()) break;
-            allUsers.add(body.toString());
+
+            List<UserDto> parsingResponseList = parsingResponse(body);
+            allUsers.addAll(parsingResponseList);
             page++;
         }
         return allUsers;
+    }
+
+    private static List<UserDto> parsingResponse(ArrayList<HashMap<String, Object>> body){
+        List<UserDto> parsingResponseList = new ArrayList<>();
+
+        for(HashMap<String, Object> data : body){
+            Double level = extractLevel(data);
+
+            HashMap<String, Object> user = (HashMap<String, Object>) data.get("user");
+            UserPersonalDto userPersonalDto = extractUserField(user);
+
+            String largeImage = extractImageField(user);
+
+            UserDto userDto = setUserDtoField(level, userPersonalDto, largeImage);
+            parsingResponseList.add(userDto);
+        }
+        return parsingResponseList;
+    }
+
+    private static UserDto setUserDtoField(Double level, UserPersonalDto userPersonalDto, String largeImage){
+        UserDto userDto = new UserDto();
+        userDto.setLevel(level);
+        userDto.setFt_server_id(userPersonalDto.getFt_server_id());
+        userDto.setRole(userPersonalDto.getRole());
+        userDto.setIntra_id(userPersonalDto.getIntra_id());
+        userDto.setWallet(userPersonalDto.getWallet());
+        userDto.setCorrection_point(userPersonalDto.getCorrection_point());
+        userDto.setImage(largeImage);
+        return userDto;
+    }
+
+    private static Double extractLevel(HashMap<String, Object> data){
+        return (Double) data.get("level");
+    }
+
+    public static UserPersonalDto extractUserField(HashMap<String, Object> user){
+        Integer ft_server_id_Value = (Integer) user.get("id");
+        int ft_server_id = ft_server_id_Value != null ? ft_server_id_Value : 0;
+
+        String intra_id = (String) user.get("login");
+        String role = (String) user.get("kind");
+
+        Integer walletValue = (Integer) user.get("wallet");
+        int wallet = walletValue != null ? walletValue : 0;
+
+        Integer correctionPointValue = (Integer) user.get("correction_point");
+        int correction_point = correctionPointValue != null ? correctionPointValue : 0;
+
+        return new UserPersonalDto(ft_server_id, intra_id, role, wallet, correction_point);
+    }
+
+    private static String extractImageField(HashMap<String, Object> user){
+        HashMap<String, Object> image = (HashMap<String, Object>) user.get("image");
+        HashMap<String, Object> versions = (HashMap<String, Object>) image.get("versions");
+        return (String) versions.get("large");
     }
 }
