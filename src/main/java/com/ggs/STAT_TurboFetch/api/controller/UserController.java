@@ -2,6 +2,7 @@ package com.ggs.STAT_TurboFetch.api.controller;
 
 import com.ggs.STAT_TurboFetch.api.ApiResponse;
 import com.ggs.STAT_TurboFetch.api.exception.CodeException;
+import com.ggs.STAT_TurboFetch.client.dto.UserDto;
 import com.ggs.STAT_TurboFetch.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +20,8 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/users")
-    public ApiResponse<List<String>> getAllUsers(
-            @RequestParam(required = false) String code ) {
+    public ApiResponse<List<UserDto>> getAllUsers(
+            @RequestParam("code") String code ) {
 
         log.info("=== code ===\n{}", code);
         if (code == null)
