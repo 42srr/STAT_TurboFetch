@@ -54,13 +54,7 @@ public class FtClientImpl implements FtClient {
 
         log.info("=== token ==={}", responseDto.toString());
 
-        /*
-        3. Access token값을 가지고 42api에 데이터 요청
-        todo
-        - 데이터 파싱
-        - 시간 개선
-         */
-        int page = 0;
+        int page = 1;
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + responseDto.getAccess_token());
         HttpEntity request = new HttpEntity(headers);
@@ -93,7 +87,7 @@ public class FtClientImpl implements FtClient {
         }
 
         String intra_id = (String) user.get("login");
-        if(intra_id != null && intra_id.startsWith("3b3")){
+        if(intra_id != null && (intra_id.startsWith("3b3") || intra_id.equals("joungpar") || intra_id.equals("gtestacc")) || intra_id.equals("gcoconut") || intra_id.equals("gyeongr2") || intra_id.equals("gyeorus2") || intra_id.equals("hydoo") || intra_id.equals("yondoo24")){
             return null;
         }
 
@@ -129,13 +123,13 @@ public class FtClientImpl implements FtClient {
 
             String largeImage = extractImageField(user);
 
-            UserDto userDto = setUserDtoField(level, userPersonalDto, largeImage);
+            UserDto userDto = createUserDtoField(level, userPersonalDto, largeImage);
             parsingResponseList.add(userDto);
         }
         return parsingResponseList;
     }
 
-    private static UserDto setUserDtoField(Double level, UserPersonalDto userPersonalDto, String largeImage){
+    private static UserDto createUserDtoField(Double level, UserPersonalDto userPersonalDto, String largeImage){
         return UserDto.builder()
                 .ft_server_id(userPersonalDto.getFt_server_id())
                 .intra_id(userPersonalDto.getIntra_id())
